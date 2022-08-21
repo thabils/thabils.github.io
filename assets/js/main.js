@@ -71,21 +71,21 @@
     })
   }
 
-  /**
-   * Back to top button
-   */
-  let backtotop = select('.back-to-top')
-  if (backtotop) {
-    const toggleBacktotop = () => {
-      if (window.scrollY > 100) {
-        backtotop.classList.add('active')
-      } else {
-        backtotop.classList.remove('active')
-      }
-    }
-    window.addEventListener('load', toggleBacktotop)
-    onscroll(document, toggleBacktotop)
-  }
+  // /**
+  //  * Back to top button
+  //  */
+  // let backtotop = select('.back-to-top')
+  // if (backtotop) {
+  //   const toggleBacktotop = () => {
+  //     if (window.scrollY > 100) {
+  //       backtotop.classList.add('active')
+  //     } else {
+  //       backtotop.classList.remove('active')
+  //     }
+  //   }
+  //   window.addEventListener('load', toggleBacktotop)
+  //   onscroll(document, toggleBacktotop)
+  // }
 
   /**
    * Mobile nav toggle
@@ -97,7 +97,7 @@
   })
 
   /**
-   * Scrool with ofset on links with a class name .scrollto
+   * Scroll with offset on links with a class name .scrollto
    */
   on('click', '.scrollto', function(e) {
     if (select(this.hash)) {
@@ -115,7 +115,7 @@
   }, true)
 
   /**
-   * Scroll with ofset on page load with hash links in the url
+   * Scroll with offset on page load with hash links in the url
    */
   window.addEventListener('load', () => {
     if (window.location.hash) {
@@ -199,22 +199,6 @@
   });
 
   /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
-
-  /**
-   * Initiate portfolio details lightbox 
-   */
-  const portfolioDetailsLightbox = GLightbox({
-    selector: '.portfolio-details-lightbox',
-    width: '90%',
-    height: '90vh'
-  });
-
-  /**
    * Portfolio details slider
    */
   new Swiper('.portfolio-details-slider', {
@@ -260,5 +244,17 @@
       mirror: false
     })
   });
+
+  function switchLang(){
+    $('[lang="nl"]').toggle();
+    $('[lang="en"]').toggle();
+  }
+
+  window.onload=function (){
+    $('[lang="nl"]').hide();
+    const button = document.getElementById("languagebutton")
+    button.addEventListener("click", switchLang)
+  }
+
 
 })()
